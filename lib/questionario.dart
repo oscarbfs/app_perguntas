@@ -28,7 +28,7 @@ class Questionario extends StatelessWidget {
         ...respostas.map((resp) {
           return Resposta(
             resp['texto'].toString(),
-            () => quandoResponder(resp['pontos']),
+            () => quandoResponder(int.parse(resp['pontos'].toString())),
           );
         }).toList(),
       ],
