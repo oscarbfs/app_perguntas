@@ -4,7 +4,7 @@ class Resultado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Parabéns!!', style: const TextStyle(fontSize: 50)),
+      child: Text('Parabéns!!', style: const TextStyle(fontSize: 28)),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './resposta.dart';
+import './questionario.dart';
 import './resultado.dart';
 
 main() => runApp(new PerguntaApp());
@@ -10,15 +9,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Azul', 'Amarelo', 'Vermelho', 'Verde'],
+      'respostas': [
+        {'texto': 'Azul', 'pontos': 20},
+        {'texto': 'Amarelo', 'pontos': 15},
+        {'texto': 'Vermelho', 'pontos': 10},
+        {'texto': 'Verde', 'pontos': 5},
+      ],
     },
     {
       'texto': 'Qual é o seu carro favorito?',
-      'respostas': ['Lamborguini', 'Bugati', 'Ferrari', 'Fusca'],
+      'respostas': [
+        {'texto': 'Lamborguini', 'pontos': 20},
+        {'texto': 'Bugati', 'pontos': 15},
+        {'texto': 'Ferrari', 'pontos': 10},
+        {'texto': 'Fusca', 'pontos': 5},
+      ],
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ['Tigre', 'Carangueijo', 'Urso', 'Tubarão'],
+      'respostas': [
+        {'texto': 'Tigre', 'pontos': 20},
+        {'texto': 'Carangueijo', 'pontos': 15},
+        {'texto': 'Urso', 'pontos': 10},
+        {'texto': 'Tubarão', 'pontos': 5},
+      ],
     },
   ];
 
@@ -36,22 +50,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada
-        ? _perguntas[_perguntaSelecionada].cast()['respostas']
-        : [];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('Perguntas'),
         ),
         body: temPerguntaSelecionada
-            ? Column(
-                children: <Widget>[
-                  Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
-                  ...respostas.map((t) => Resposta(t, _responder)).toList(),
-                ],
-              )
+            ? Questionario(_perguntas, _perguntaSelecionada, _responder)
             : Resultado(),
       ),
     );
