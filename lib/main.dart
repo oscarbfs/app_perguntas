@@ -60,7 +60,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: temPerguntaSelecionada
             ? Questionario(_perguntas, _perguntaSelecionada, _responder)
-            : Resultado(),
+            : Resultado(_pontucaoTotal),
       ),
     );
   }
