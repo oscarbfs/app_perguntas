@@ -24,12 +24,16 @@ class Resultado extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
+          child: Text(('Sua pontuação: $pontuacao').toString(),
+              style: const TextStyle(fontSize: 28)),
+        ),
+        Center(
           child: Text(fraseResultado, style: const TextStyle(fontSize: 28)),
         ),
         TextButton(
           child: Text(
             'Reiniciar?',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 28),
           ),
           style: TextButton.styleFrom(
             primary: Colors.blue, // background
